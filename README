@@ -1,0 +1,10 @@
+==================
+Generate Test Data
+==================
+
+Python `yield` statement makes easy to write and compose test data
+generators. I want to show how to have the same easy composition, but
+using only the most basic facilities of C. That means no threads and
+no coroutine libraries.
+
+The technique is ancient: state machines.
