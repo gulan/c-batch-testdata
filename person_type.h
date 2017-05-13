@@ -1,3 +1,6 @@
+#if !defined(PERSON_TYPE)
+#define PERSON_TYPE
+
 /*
 A person is either 'staff' or 'patient'. Ww want the chance of
 choosing a patient to be twice as likely as choosing staff.
@@ -12,3 +15,5 @@ function instead of a co-routine.
 
 enum PERSONTYPE {PATIENT,STAFF};
 enum PERSONTYPE person_type_choose(void);
+
+#endif

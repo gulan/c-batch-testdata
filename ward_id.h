@@ -1,7 +1,5 @@
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//#include <sys/time.h>
+#if !defined(WARD_ID)
+#define WARD_ID
 
 #define SVN 16
 
@@ -14,3 +12,5 @@ struct ward_id_state_vector {
 };
 
 void ward_id_gen(struct ward_id_state_vector *sv);
+
+#endif

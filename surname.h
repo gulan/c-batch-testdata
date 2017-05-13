@@ -1,3 +1,6 @@
+#if !defined(SURNAME)
+#define SURNAME
+
 /*
 Yield the concatenated cartesian product of INITIALS and FINALS in
 random order.
@@ -16,3 +19,4 @@ struct surname_state_vector {
 
 void surname_simple_gen(struct surname_state_vector *sv);
 
+#endif
