@@ -2,3 +2,6 @@
 *.o
 *.out
 *.a
+hosp_td
+*.pyc
+
