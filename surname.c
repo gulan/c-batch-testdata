@@ -10,8 +10,9 @@ static const char *FINALS[] = {"a","ai","ao","au","e","ee","ea","ei","i","ia","i
 
 void
 surname_simple_gen(struct surname_state_vector *sv) {
-  int i,j,k,r,s;
-  int *xl;
+  size_t i,j,k;
+  size_t r,s;
+  size_t *xl;  // translate array index to shuffled location
   char buf[5];
 
   switch (sv->state) {
@@ -30,8 +31,8 @@ surname_simple_gen(struct surname_state_vector *sv) {
     };
     sv->m = k;
     // shuffle remapping vector
-    xl = (int *)malloc(sv->m * sizeof(int));
-    for (int i=0; i < sv->m; i++)
+    xl = (size_t *)malloc(sv->m * sizeof(size_t));
+    for (size_t i=0; i < sv->m; i++)
       xl[i] = i;
     s = sv->m - 1;
     while (s > 0) {
@@ -49,7 +50,7 @@ surname_simple_gen(struct surname_state_vector *sv) {
 
   case surname_NEXT:
     if (sv->loop < sv->m) {
-      int p = sv->xl[sv->loop];
+      size_t p = sv->xl[sv->loop];
       strcpy((char *)sv->value, (char *)sv->sn[p]);
       sv->loop++;
       sv->state = surname_NEXT;

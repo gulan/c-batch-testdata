@@ -6,8 +6,7 @@ static enum PERSONTYPE ptmap[3] = {PATIENT,PATIENT,STAFF};
 
 enum PERSONTYPE
 person_type_choose(void) {
-  int m = rand() % 3;
-  return ptmap[m];
+  return ptmap[rand()%3];
 };
 
 
