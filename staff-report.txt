@@ -1,0 +1,32 @@
+Narative specification
+----------------------
+Using the kind of file produced by host_td, print a staff report on
+demand.
+
+The report has one line per ward, and displays the ward-id and count
+of the staff in that ward. The end of the report has a total staff
+line.
+
+Include a report heading, but don't bother breaking the output into
+pages.
+
+Design
+------
+[incomplete]
+
+Operations
+----------
+2  read_hosp()
+4  printf heading
+5  printf total
+6  printf ward,count
+7  count = 0
+8  count++
+9  total = 0
+10 total += count
+11 strcpy(saved-ward-id,ward-id)
+
+Conditions
+----------
+more-wards                   -- not eof
+more-wards and more-patients -- next record ward-id == saved-ward-id

@@ -17,4 +17,4 @@ ward_id.o : ward_id.h ward_id.c
 	gcc -Wall -std=c99 -c ward_id.c
 
 clean :
-	-rm -f hosp_td main.o person_type.o surname.o hyphen.o ward_id.o
+	-rm -f main.o person_type.o surname.o hyphen.o ward_id.o

@@ -1,0 +1,90 @@
+##         $ astjsd.py <staff-report.jsd |dot -T pdf -o staff-report.pdf
+##
+## input = ward-batch*
+## ward-batch = person*
+## person = patient | staff
+## 
+## report = heading . body . total
+## body = ward-line*
+## ward-line = ward-id . staff-count
+
+(rep input
+    (rep ward-batch
+        (alt person [(lit patient) (lit staff)])))
+
+(seq input-cannon [
+    (lit wbeg)
+    (rep wgroup
+        (seq ward-batch [
+            (lit pbeg)
+            (rep pgroup
+                (alt person [
+                    (lit patient)
+                    (lit staff)]))
+            (lit pend)]))
+    (lit wend)])
+
+(seq program [
+    (lit heading)
+    (rep body
+        (seq ward-batch-line [
+            (rep pgroup
+                (alt person [
+                    (lit patient)
+                    (lit staff)]))
+	    (lit ward-id)
+	    (lit staff-count)]))
+    (lit total)])
+
+(seq report [
+    (lit heading)
+    (rep body
+        (seq ward-line [
+	    (lit ward-id)
+	    (lit staff-count)]))
+    (lit total)])
+
+
+## calulations
+## input
+## -----
+## ward-batch*
+## ----------
+## person*
+## ---------------
+## patient | staff
+## ====================
+## input
+## -----
+## beg . wgroup . end
+##       -----
+##     ward-batch*
+##     ----------
+##      person*
+##   ---------------
+##   patient | staff
+## ====================
+## input
+## -----
+## wbeg . wgroup . wend
+##       -----
+##     ward-batch*
+##     ----------
+##     pbeg . pgroup . pend
+##         ----------
+##          person*
+##       ---------------
+##       patient | staff
+
+## input = wbeg . wgroup . wend
+## wgroup = ward-batch*
+## ward-batch = pbeg . pgroup . pend
+## pgroup = person*
+## person = patient | staff
+
+## (seq input-cannon [(lit wbeg) (rep wgroup
+##     (seq ward-batch [(lit pbeg) (rep pgroup (alt person [(lit patient) (lit staff)])) (lit pend)])) (lit wend)])
+
+
+
+    	 

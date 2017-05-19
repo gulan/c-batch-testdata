@@ -1,7 +1,9 @@
 * add 'stuttering'
-* c version does not yet sort name within ward.
-* design and implement report
+* c version does not yet sort name within ward
+* require at least one staff per ward
+X design and implement report
 * batch update
-X modernize coding style.
+* include staff-report in build
+
 
 
